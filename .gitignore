@@ -35,6 +35,7 @@ db.sqlite3
 
 .venv/
 venv*/
+venvfinancas/
 staticfiles/
 .ipynb_checkpoints/
 .idea/
