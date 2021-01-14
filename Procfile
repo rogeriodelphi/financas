@@ -1,1 +1,1 @@
-web: run-program financas.wsgi --log-file -
+web: run-program gunicorn financas.wsgi --log-file -
