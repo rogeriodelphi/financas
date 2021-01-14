@@ -1,1 +1,1 @@
-web: run-program financas pypro.wsgi --log-file -
+web: run-program financas.wsgi --log-file -
