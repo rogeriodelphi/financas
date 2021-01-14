@@ -1,1 +1,1 @@
-web: gunicorn financas.wsgi --log-file -
+web: run-program financas pypro.wsgi --log-file -
