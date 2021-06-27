@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-4 offset-4">
+    <a href="/" class="btn btn-secondary">Go home</a>
+    <div class="card mt-3">
+        <div class="card-header">
+            <a href="/{{ natdespesa.id }}"><h4>{{ natdespesa.nat_natdespesa }}</h4></a>
+        </div>
+        <div class="card-body">
+            <p>{{ natdespesa.nat_obs }}</p>
+        </div>
+        <div class="card-footer">
+<!--            <a href="/{{ natdespesa.id }}/update/" class="btn btn-secondary">Update this todo-->
+            </a>
+<!--            <a href="/{{ todo.id }}/delete/" class="btn btn-secondary">Delete this todo</a>-->
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% if request.user.is_authenticated %}
+    Hello, {{ request.user.username }}
+    {% else %}
+    Hello anonymous user!
+    {% endif %}
+    Nat. Despesa :{{ n.natdespesa }}
+    Observação is :{{ n.obs }}
+<!--    <a href="/{{ natdespesa.id }}/update/">Update this todo</a>-->
+<!--    <a href="/{{ natdespesa.id }}/delete/">Delete this todo</a>-->
+</body>
+</html>

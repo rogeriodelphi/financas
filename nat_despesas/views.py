@@ -31,6 +31,16 @@ def inserir_natdespesa(request):
 
 
 @login_required()
+def listar_detalhe_natdespesa(request, id):
+    template_name = 'nat_despesas/listar_detalhe_natdespesa.html'
+    natdespesa = NatDespesa.objects.get(id=id)
+    context = {
+        'natdespesa': natdespesa
+    }
+    return render(request, template_name, context)
+
+
+@login_required()
 def editar_natdespesa(request, id):
     template_name = 'nat_despesas/inserir_natdespesas.html'
     natdespesa = NatDespesa.objects.get(id=pk)
