@@ -10,16 +10,16 @@
         {% endif %}
     </p>
 
-<!--    <a class="btn btn-primary" href="/create">Create a todo</a>-->
+    <a class="btn btn-primary" href="/inserir">Inserir a Natureza da Despesa</a>
 </div>
 <div class="col-4 offset-4">
-    {% for todo in todo_list  %}
+    {% for n in natdespesas  %}
     <div class="card mt-3">
         <div class="card-header">
-<!--            <a href="/{{ todo.id }}"><h4>{{ todo.name }}</h4></a>-->
+            <a href="/{{ n.id }}"><h4>{{ n.nat_despesa }}</h4></a>
         </div>
         <div class="card-body">
-<!--            <p>It's due {{ todo.due_date }}</p>-->
+            <p>{{ n.nat_obs }}</p>
         </div>
     </div>
     {% endfor %}
