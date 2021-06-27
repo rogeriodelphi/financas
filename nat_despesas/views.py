@@ -9,7 +9,9 @@ from nat_despesas.models import NatDespesa
 def listar_natdespesas(request):
     template_name = 'nat_despesas/listar_natdespesas.html'
     natdespesas = NatDespesa.objects.all()
-    context = {'natdespesas': natdespesas}
+    context = {
+        'natdespesas': natdespesas
+    }
     return render(request, template_name, context)
 
 
@@ -22,7 +24,9 @@ def inserir_natdespesa(request):
             form.save()
         return redirect('nat_despesas:listar_natdespesas')
     form = NatDespesaForm()
-    context = {'form': form}
+    context = {
+        'form': form
+    }
     return render(request, template_name, context)
 
 
@@ -31,7 +35,9 @@ def editar_natdespesa(request, id):
     template_name = 'nat_despesas/inserir_natdespesas.html'
     natdespesa = NatDespesa.objects.get(id=pk)
     form = NatDespesaForm(request.POST or None, instance=natdespesa)
-    context = {'form':form}
+    context = {
+        'form':form
+    }
     if form.is_valid():
         form.save()
         return redirect('nat_despesas:listar_natdespesas')
