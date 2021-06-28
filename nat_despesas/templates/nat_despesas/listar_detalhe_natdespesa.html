@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="col-4 offset-4">
-    <a href="/" class="btn btn-secondary">Go home</a>
+    <a href="/" class="btn btn-secondary">Ir pra Home</a>
     <div class="card mt-3">
         <div class="card-header">
             <a href="/{{ natdespesa.id }}"><h4>{{ natdespesa.nat_natdespesa }}</h4></a>
@@ -11,7 +11,7 @@
             <p>{{ natdespesa.nat_obs }}</p>
         </div>
         <div class="card-footer">
-<!--            <a href="/{{ natdespesa.id }}/update/" class="btn btn-secondary">Update this todo-->
+            <a href="/editar/{{ natdespesa.id }}/" class="btn btn-secondary">Editar
             </a>
 <!--            <a href="/{{ todo.id }}/delete/" class="btn btn-secondary">Delete this todo</a>-->
         </div>

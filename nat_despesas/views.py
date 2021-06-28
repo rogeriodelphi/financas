@@ -9,9 +9,7 @@ from nat_despesas.models import NatDespesa
 def listar_natdespesas(request):
     template_name = 'nat_despesas/listar_natdespesas.html'
     natdespesas = NatDespesa.objects.all()
-    context = {
-        'natdespesas': natdespesas
-    }
+    context = {'natdespesas': natdespesas}
     return render(request, template_name, context)
 
 
@@ -24,9 +22,7 @@ def inserir_natdespesa(request):
             form.save()
         return redirect('nat_despesas:listar_natdespesas')
     form = NatDespesaForm()
-    context = {
-        'form': form
-    }
+    context = {'form': form}
     return render(request, template_name, context)
 
 
@@ -34,33 +30,31 @@ def inserir_natdespesa(request):
 def listar_detalhe_natdespesa(request, id):
     template_name = 'nat_despesas/listar_detalhe_natdespesa.html'
     natdespesa = NatDespesa.objects.get(id=id)
-    context = {
-        'natdespesa': natdespesa
-    }
+    context = {'natdespesa': natdespesa}
     return render(request, template_name, context)
 
 
 @login_required()
 def editar_natdespesa(request, id):
-    template_name = 'nat_despesas/inserir_natdespesas.html'
-    natdespesa = NatDespesa.objects.get(id=pk)
+    template_name = 'nat_despesas/editar_natdespesa.html'
+    natdespesa = NatDespesa.objects.get(id=id)
     form = NatDespesaForm(request.POST or None, instance=natdespesa)
-    context = {
-        'form':form
-    }
     if form.is_valid():
         form.save()
         return redirect('nat_despesas:listar_natdespesas')
+    context = {'form':form}
     return render(request, template_name, context)
 
 
 @login_required
 def excluir_natdespesa(request, id):
-    natdespesa = NatDespesa.objects.get(id=pk)
+    template_name = 'nat_despesa/confirma_exclusao.html'
+    natdespesa = NatDespesa.objects.get(id=id)
     if request.method == "POST":
         natdespesa.delete()
         return redirect('nat_despesas:listar_nat_despesas')
-    return render(request, 'nat_despesa/confirma_exclusao.html', {'natdespesa': natdespesa})
+    context = {'natdespesa': natdespesa}
+    return render(request, template_name, context)
 
 
 
