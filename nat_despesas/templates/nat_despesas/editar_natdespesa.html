@@ -2,14 +2,13 @@
 
 {% block content %}
 <div class="col-4 offset-4">
-    <a href="/" class="btn btn-secondary">Go home</a>
-    <h4>Update todo</h4>
+    <a href="/" class="btn btn-secondary">Principal</a>
+    <h4>Editar Natureza da Despesa</h4>
     <form method="POST">
         {% csrf_token %}
-        <!--          <input type="text" name="name">-->
-        <!--          <input type="date" name="due_date">        -->
+
         {{ form.as_p }}
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit">Salvar</button>
     </form>
 </div>
 {% endblock content %}
