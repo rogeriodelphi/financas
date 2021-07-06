@@ -1,27 +1,43 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<div class="text-center">
-    <p>
-        {% if request.user.is_authenticated %}
-        Hello, {{ request.user.username }}
-        {% else %}
-        Hello anonymous user!
-        {% endif %}
-    </p>
+{% load crispy_forms_tags %}
 
-    <a class="btn btn-primary" href="/inserir">Inserir a Natureza da Despesa</a>
+{% block titulo %}
+Cadastro de Nat. Despesa
+{% endblock titulo %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12"></div>
 </div>
-<div class="col-4 offset-4">
-    {% for n in natdespesas  %}
-    <div class="card mt-3">
-        <div class="card-header">
-            <a href="/listar/{{ n.id }}"><h4>{{ n.nat_natdespesa }}</h4></a>
+<div class="card">
+    <div class="card-header">
+        <h2><i class="fa-user"></i>Listagem de Natureza da Despesa</h2>
+    </div>
+    <div class="card-body">
+        <div class="text-center">
+        <p>
+            {% if request.user.is_authenticated %}
+            Hello, {{ request.user.username }}
+            {% else %}
+            Hello anonymous user!
+            {% endif %}
+        </p>
+
+        <a class="btn btn-primary" href="/inserir">Inserir a Natureza da Despesa</a>
         </div>
-        <div class="card-body">
-            <p>{{ n.nat_obs }}</p>
+        <div class="col-4 offset-4">
+        {% for n in natdespesas  %}
+        <div class="card mt-3">
+            <div class="card-header">
+                <a href="/listar/{{ n.id }}"><h4>{{ n.nat_natdespesa }}</h4></a>
+            </div>
+            <div class="card-body">
+                <p>{{ n.nat_obs }}</p>
+            </div>
+        </div>
+        {% endfor %}
         </div>
     </div>
-    {% endfor %}
 </div>
 {% endblock content %}
