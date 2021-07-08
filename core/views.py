@@ -14,6 +14,10 @@ def charts(request):
 def tables(request):
     return render(request, 'basic-table.html')
 
+@login_required(login_url='/contas/login/')
+def forms(request):
+    return render(request, 'basic_elements.html')
+
 # def home(request):
 #     return render(request, 'home.html')
 #
