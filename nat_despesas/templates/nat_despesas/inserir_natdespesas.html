@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
 
 {% load crispy_forms_tags %}
 
@@ -6,25 +6,38 @@
     Cadastro de Nat. Despesa
 {% endblock titulo %}
 
-{% block content %}
-    <div class="row">
-        <div class="col-12"></div>
-    </div>
-    <div class="card">
-        <div class="card-header">
-            <h2><i class="fa fa-users"></i>Cadastro de Natureza da Despesa</h2>
-        </div>
-        <div class="card-body">
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="container">
+{% load static %}
 
+{% block pages %}
+<!-- partial -->
+
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+        <div class="header-left">
+            <div class="row">
+                <div class="col-xl-12 stretch-card grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2><i class="mdi mdi mdi-cash-usd menu-icon"></i>Cadastro de Natureza da Despesa</h2>
+                                </div>
+                                <div class="card-body">
+                                    <form method="POST">
+                                        {% csrf_token %}
+                                        <div class="container">
+
+                                        </div>
+                                        {{ form.as_p }}
+                                        <button class="btn btn-primary" type="submit">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    {{ form.as_p }}
-                    <button class="btn btn-primary" type="submit">Submit</button>
-                </form>
+                </div>
+            </div>
         </div>
-
-
     </div>
-{% endblock content %}
+</div>
+{% endblock pages %}
