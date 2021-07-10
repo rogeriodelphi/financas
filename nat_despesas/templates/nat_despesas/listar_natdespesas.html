@@ -42,10 +42,10 @@ Listagem das Naturezas das Despesas
                                                     <a href="#">
                                                         <i class="fa fa-search" aria-hidden="true" style="color: green;"></i>
                                                     </a>
-                                                    <a href="#">
+                                                    <a href="{% url 'nat_despesas:editar_natdespesa' n.id %}">
                                                         <i class="fa fa-edit" aria-hidden="true" style="color: blue;"></i>
                                                     </a>
-                                                    <a href="#">
+                                                    <a href="{% url 'nat_despesas:excluir_natdespesa' n.id %}">
                                                         <i class="fa fa-trash" aria-hidden="true" style="color: red;"></i>
                                                     </a>
                                                 </td>

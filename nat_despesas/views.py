@@ -48,10 +48,13 @@ def editar_natdespesa(request, id):
 
 @login_required
 def excluir_natdespesa(request, id):
-    natdespesa = NatDespesa.objects.get(id=id)
-    natdespesa.delete()
-    return redirect('nat_despesas:listar_natdespesas')
-
+    template_name = 'nat_despesas/confirma_exclusao.html'
+    form = NatDespesa.objects.get(id=id)
+    context = {'form': form}
+    if request.method == "POST":
+        form.delete()
+        return redirect('nat_despesas:listar_natdespesas')
+    return render(request, template_name, context)
 
 
 """
