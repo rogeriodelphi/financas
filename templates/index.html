@@ -14,8 +14,11 @@
             <!--change to offline or busy as needed-->
           </div>
           <div class="nav-profile-text d-flex ml-0 mb-3 flex-column">
-            <span class="font-weight-semibold mb-1 mt-2 text-center">Antonio Olson</span>
-            <span class="text-secondary icon-sm text-center">$3499.00</span>
+            {% if request.user.is_authenticated %}
+              <span class="font-weight-semibold mb-1 mt-2 text-center">{{ request.user.first_name }} {{ request.user.last_name }}</span>
+            {% else %}
+              <span class="font-weight-semibold mb-1 mt-2 text-center">Hello anonymous user!</span>
+            {% endif %}
           </div>
         </a>
       </li>
