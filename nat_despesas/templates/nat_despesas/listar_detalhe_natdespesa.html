@@ -1,32 +1,44 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
 
-{% block content %}
-<div class="col-4 offset-4">
-    <a href="/" class="btn btn-secondary">Principal</a>
-    <div class="card mt-3">
-        <div class="card-header">
-            <a href="/listar/{{ natdespesa.id }}/"><h4>{{ natdespesa.nat_natdespesa }}</h4></a>
-        </div>
-        <div class="card-body">
-            <p>{{ natdespesa.nat_obs }}</p>
-        </div>
-        <div class="card-footer">
-            <a href="/editar/{{ natdespesa.id }}/" class="btn btn-secondary">Editar
-            </a>
-            <a href="/excluir/{{ natdespesa.id }}/" class="btn btn-secondary">Excluir</a>
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+Listagem das Naturezas das Despesas
+{% endblock titulo %}
+
+{% load static %}
+
+{% block pages %}
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+        <div class="header-left">
+            <div class="row">
+                <div class="col-xl-12 stretch-card grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="pull-left"><i class="mdi mdi mdi-cash-usd menu-icon"></i> Detalhe da Natureza da Despesa</h2>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-header">
+                                        <a href="/listar/{{ natdespesa.id }}/"><h4>{{ natdespesa.nat_natdespesa }}</h4></a>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>{{ natdespesa.nat_obs }}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="/editar/{{ natdespesa.id }}/" class="btn btn-secondary">Editar
+                                        </a>
+                                        <a href="/excluir/{{ natdespesa.id }}/" class="btn btn-secondary">Excluir</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-{% endblock content %}
-
-{% if request.user.is_authenticated %}
-    Hello, {{ request.user.username }}
-    {% else %}
-    Hello anonymous user!
-    {% endif %}
-    Nat. Despesa :{{ n.natdespesa }}
-    Observação is :{{ n.obs }}
-<!--    <a href="/{{ natdespesa.id }}/update/">Update this todo</a>-->
-<!--    <a href="/{{ natdespesa.id }}/delete/">Delete this todo</a>-->
-</body>
-</html>
+{% endblock pages %}

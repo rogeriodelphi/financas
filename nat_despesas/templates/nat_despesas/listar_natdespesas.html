@@ -39,7 +39,7 @@ Listagem das Naturezas das Despesas
                                             <tr>
                                                 <td>{{ n.nat_natdespesa }}</td>
                                                 <td style="text-align: center; vertical-align: middle;">
-                                                    <a href="#">
+                                                    <a href="{% url 'nat_despesas:listar_detalhe_natdespesa' n.id %}">
                                                         <i class="fa fa-search" aria-hidden="true" style="color: green;"></i>
                                                     </a>
                                                     <a href="{% url 'nat_despesas:editar_natdespesa' n.id %}">
