@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'core',
     'nat_despesas',
+    'fornecedores',
     'despesas',
 ]
 
