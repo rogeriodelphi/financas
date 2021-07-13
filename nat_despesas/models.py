@@ -2,7 +2,7 @@ from django.db import models
 
 
 class NatDespesa(models.Model):
-    nat_natdespesa = models.CharField('Nat. Despesa', max_length=100)
+    nat_natdespesa = models.CharField('Natureza da Despesa', max_length=100)
     nat_obs = models.TextField('Observações', max_length=300, blank=True, null=True)
 
     def __str__(self):
