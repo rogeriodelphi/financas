@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+Detalhar Fornecedor
+{% endblock titulo %}
+
+{% load static %}
+
+{% block pages %}
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+        <div class="header-left">
+            <div class="row">
+                <div class="col-xl-12 stretch-card grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="pull-left"><i class="mdi mdi mdi-cash-usd menu-icon"></i> Detalhe da Natureza da Despesa</h2>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-header">
+                                        <a href="/fornecedores/listar/{{ fornecedor.id }}/"><h4>{{ fornecedor.for_fornecedor }}</h4></a>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>{{ fornecedor.for_fone }}</p>
+                                        <p>{{ fornecedor.for_obs }}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="button" class="btn btn-linkedin" onClick="history.go(-1)">
+                                            <i class="fa fa-angle-double-left"></i> Voltar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock pages %}

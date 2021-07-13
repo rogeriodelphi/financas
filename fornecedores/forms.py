@@ -3,6 +3,9 @@ from django import forms
 from .models import Fornecedor
 
 
-class Fornecedor(forms.ModelForm):
-    model = Fornecedor
-    fields = ['for_fornecedor', 'for_fone']
+class FornecedorForm(forms.ModelForm):
+    for_obs = forms.CharField(label='Observações', required=False, widget=forms.Textarea(attrs={'rows': '3'}))
+
+    class Meta:
+        model = Fornecedor
+        fields = ['for_fornecedor', 'for_fone']

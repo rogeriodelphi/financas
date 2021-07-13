@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+Listagem de Fornecedores
+{% endblock titulo %}
+
+{% load static %}
+
+{% block pages %}
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+        <div class="header-left">
+            <div class="row">
+                <div class="col-xl-12 stretch-card grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="pull-left"><i class="fa fa-table menu-icon"></i> Listagens  de Fornecedores</h2>
+                                    <form class="form-inline pull-right">
+                                        <div style="float: right;">
+                                            <a class="btn btn-primary btn-sm" href="{% url 'fornecedores:inserir_fornecedor' %}"><i class="fa fa-plus"></i><span> Cadastrar</span></a>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                            <tr style="text-align: center">
+                                                <th>Fornecedor</th>
+                                                <th>Telefone</th>
+                                                <th>Obs</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for f in fornecedores %}
+                                            <tr>
+                                                <td>{{ f.for_fornecedor }}</td>
+                                                <td>{{ f.for_fone }}</td>
+                                                <td>{{ f.for_obs }}</td>
+                                                <td style="text-align: center; vertical-align: middle;">
+                                                    <a href="{% url 'fornecedores:listar_detalhe_fornecedor' f.id %}">
+                                                        <i class="fa fa-search" aria-hidden="true" style="color: green;"></i>
+                                                    </a>
+                                                    <a href="{% url 'fornecedores:editar_fornecedor' f.id %}">
+                                                        <i class="fa fa-edit" aria-hidden="true" style="color: blue;"></i>
+                                                    </a>
+                                                    <a href="{% url 'fornecedores:excluir_fornecedor' f.id %}">
+                                                        <i class="mdi mdi-delete" aria-hidden="true" style="color: red;"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock pages %}
