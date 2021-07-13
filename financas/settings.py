@@ -1,8 +1,13 @@
 import os
+import sys
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+APPS_DIR = os.path.join(BASE_DIR, 'apps')
+
+sys.path.insert(0, APPS_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -17,21 +22,30 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+THIRD_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
-    'core',
-    'nat_despesas',
-    'fornecedores',
-    'despesas',
-    'meiodepagamentos',
 ]
+
+PROJECT_APPS = [
+    'apps.core',
+    'apps.nat_despesas',
+    'apps.fornecedores',
+    'apps.despesas',
+    'apps.meiodepagamentos',
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + PROJECT_APPS
+
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'

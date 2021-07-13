@@ -8,7 +8,7 @@ from .views import (
     excluir_natdespesa,
 )
 
-app_name = 'nat_despesas'
+app_name = 'apps.nat_despesas'
 
 urlpatterns = [
     path('', listar_natdespesas, name='listar_natdespesas'),

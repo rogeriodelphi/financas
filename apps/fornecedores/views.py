@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from fornecedores.forms import FornecedorForm
-from fornecedores.models import Fornecedor
+from apps.fornecedores.forms import FornecedorForm
+from apps.fornecedores.models import Fornecedor
 
 
 @login_required()

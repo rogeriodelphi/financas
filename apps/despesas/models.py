@@ -1,8 +1,8 @@
 from django.db import models
 
-from fornecedores.models import Fornecedor
-from meiodepagamentos.models import MeiodePagamento
-from nat_despesas.models import NatDespesa
+from apps.fornecedores.models import Fornecedor
+from apps.meiodepagamentos.models import MeiodePagamento
+from apps.nat_despesas.models import NatDespesa
 
 
 class Despesa(models.Model):

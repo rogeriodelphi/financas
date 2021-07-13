@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from nat_despesas.forms import NatDespesaForm
-from nat_despesas.models import NatDespesa
+from apps.nat_despesas.forms import NatDespesaForm
+from apps.nat_despesas.models import NatDespesa
 
 
 @login_required()
