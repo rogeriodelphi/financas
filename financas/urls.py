@@ -9,5 +9,6 @@ urlpatterns = [
     path('', include(core_urls)),
     path('natdespesas/', include('apps.nat_despesas.urls', namespace='nat_despesas')),
     path('fornecedores/', include('apps.fornecedores.urls', namespace='fornecedores')),
+    path('despesas/', include('apps.despesas.urls', namespace='despesas')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
