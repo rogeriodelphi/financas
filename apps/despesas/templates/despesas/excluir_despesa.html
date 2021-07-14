@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+Excluir Despesa
+{% endblock titulo %}
+
+{% load static %}
+
+{% block pages %}
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+        <div class="header-left">
+            <div class="row">
+                <div class="col-xl-12 stretch-card grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2><i class="mdi mdi-delete menu-icon"></i> Excluir Despesa</h2>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-header"><h4>Deseja realmente excluir do sistema os dados abaixo:</h4><br>
+                                        <h6>Data: <strong>{{ form.des_datadespesa | date:'d/m/y' }}</strong></h6>
+                                        <h6>Valor: <strong>R$ {{ form.des_valordespesa}}</strong></h6>
+                                        <h6>Despesa: <strong>{{ form.nat_despesa}}</strong></h6>
+                                        <h6>Fornecedor: <strong>{{ form.fornecedor}}</strong></h6>
+                                        <h6>Meio de Pagamento: <strong>{{ form.meiodepagamento}}</strong></h6>
+                                        <h6>Status: <strong>{{ form.get_des_status_display}}</strong></h6>
+                                        <h6>Itens: <strong>{{ form.des_itensdespesa | truncatewords_html:35}}</strong></h6>
+                                        <h6>Observações: <strong>{{ form.des_obs | truncatewords_html:35}}</strong></h6>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header"><br>
+                                            <form method="post">
+                                                {% csrf_token %}
+                                                <button class="btn btn-danger" type="submit"><i class="mdi mdi-delete-forever"></i>Remover</button>
+                                                <button type="button" class="btn btn-primary" onClick="history.go(-1)">
+                                                    <i class="fa fa-angle-double-left"></i> Voltar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock pages %}

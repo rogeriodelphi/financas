@@ -36,3 +36,14 @@ def editar_despesa(request, id):
         return redirect('despesas:listar_despesas')
     context = {'form': form}
     return render(request, template_name, context)
+
+
+@login_required()
+def excluir_despesa(request, id):
+    template_name = 'despesas/excluir_despesa.html'
+    form = Despesa.objects.get(id=id)
+    context = {'form': form}
+    if request.method == 'POST':
+        form.delete()
+        return redirect('despesas:listar_despesas')
+    return render(request, template_name, context)

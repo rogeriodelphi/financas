@@ -49,7 +49,7 @@ Listagem de despesas
                                                 <td>{{ d.fornecedor }}</td>
                                                 <td>{{ d.meiodepagamento }}</td>
                                                 <td>{{ d.get_des_status_display }}</td>
-                                                <td>{{ d.des_itensdespesa }}</td>
+                                                <td>{{ d.des_itensdespesa | truncatewords_html:7 }}</td>
                                                 <td style="text-align: center; vertical-align: middle;">
                                                     <a href="#">
                                                         <i class="fa fa-search" aria-hidden="true" style="color: green;"></i>
@@ -57,7 +57,7 @@ Listagem de despesas
                                                     <a href="{% url 'despesas:editar_despesa' d.id %}">
                                                         <i class="fa fa-edit" aria-hidden="true" style="color: blue;"></i>
                                                     </a>
-                                                    <a href="#">
+                                                    <a href="{% url 'despesas:excluir_despesa' d.id %}">
                                                         <i class="mdi mdi-delete" aria-hidden="true" style="color: red;"></i>
                                                     </a>
                                                 </td>
