@@ -25,6 +25,13 @@ def inserir_despesa(request):
     context = {'form': form}
     return render(request, template_name, context)
 
+@login_required()
+def listar_detalhe_despesa(request, id):
+    template_name = 'despesas/listar_detalhe_despesa.html'
+    despesa = Despesa.objects.get(id=id)
+    context = {'despesa': despesa}
+    return render(request, template_name, context)
+
 
 @login_required()
 def editar_despesa(request, id):
