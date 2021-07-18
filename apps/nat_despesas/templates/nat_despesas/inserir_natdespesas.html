@@ -14,40 +14,42 @@
         <div class="header-left">
             <div class="row">
                 <div class="col-xl-12 stretch-card grid-margin">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h2><i class="mdi mdi mdi-cash-usd menu-icon"></i> Cadastro de Natureza da Despesa</h2>
-                                </div>
-                                <div class="card-body">
-                                    <form method="POST">
-                                    {% csrf_token %}
-                                        <div class="p-3 mb-2 bg-light text-dark">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    {{ form.nat_natdespesa.errors }}
-                                                    {{ form.nat_natdespesa | as_crispy_field }}
-                                                </div>
-                                                <div class="col-md-12">
-                                                    {{ form.nat_obs.errors }}
-                                                    {{ form.nat_obs | as_crispy_field }}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="p-3 mb-2 bg-light text-dark">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <button type="submit" class="btn btn-primary mr-2">
-                                                        <i class="mdi mdi-content-save"></i> Salvar
-                                                    </button>
-                                                    <button type="button" class="btn btn-linkedin" onClick="history.go(-1)">
-                                                        <i class="fa fa-angle-double-left"></i> Voltar
-                                                    </button>
+                    <div class="container">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h2><i class="mdi mdi mdi-cash-usd menu-icon"></i> Cadastro de Natureza da Despesa</h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <form method="POST">
+                                        {% csrf_token %}
+                                            <div class="p-3 mb-2 bg-light text-dark">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        {{ form.nat_natdespesa.errors }}
+                                                        {{ form.nat_natdespesa | as_crispy_field }}
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        {{ form.nat_obs.errors }}
+                                                        {{ form.nat_obs | as_crispy_field }}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                            <div class="p-3 mb-2 bg-light text-dark">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <button type="submit" class="btn btn-primary mr-2">
+                                                            <i class="mdi mdi-content-save"></i> Salvar
+                                                        </button>
+                                                        <button type="button" class="btn btn-linkedin" onClick="history.go(-1)">
+                                                            <i class="fa fa-angle-double-left"></i> Voltar
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
