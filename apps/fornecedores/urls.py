@@ -8,7 +8,7 @@ from .views import (
     excluir_fornecedor,
 )
 
-app_name = 'apps.fornecedores'
+app_name = 'apps/fornecedores'
 
 urlpatterns = [
     path('', listar_fornecedores, name='listar_fornecedores'),

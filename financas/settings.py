@@ -34,6 +34,9 @@ DJANGO_APPS = [
 THIRD_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
+    'django_extensions',
+
+
 ]
 
 PROJECT_APPS = [

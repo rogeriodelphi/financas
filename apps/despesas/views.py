@@ -54,3 +54,15 @@ def excluir_despesa(request, id):
         form.delete()
         return redirect('despesas:listar_despesas')
     return render(request, template_name, context)
+
+
+# @login_required()
+# def consultar_despesas(request):
+#     template_name = 'despesas/consultar_despesas.html'
+
+    start_date = request.GET.get('start_date')
+    end_date = request.GET.get('end_date')
+
+    '''Retorna o range de datas escolhido para a consulta'''  # 3 e 4
+    if start_date and end_date:
+        form = form.filter(data__range=[start_date, end_date])
