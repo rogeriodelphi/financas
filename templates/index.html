@@ -47,23 +47,68 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'despesas:listar_despesas' %}">
+        <a class="nav-link" data-toggle="collapse" href="#despesas-basic" aria-expanded="false" aria-controls="despesas-basic">
           <i class="mdi mdi-cash-usd menu-icon menu-icon"></i>
           <span class="menu-title">Despesas</span>
+          <i class="menu-arrow"></i>
         </a>
+        <div class="collapse" id="despesas-basic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'despesas:listar_despesas' %}">Listar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'despesas:inserir_despesa' %}">Cadastrar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Relatório</a>
+            </li>
+          </ul>
+        </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'nat_despesas:listar_natdespesas' %}">
+        <a class="nav-link" data-toggle="collapse" href="#natdespesas-basic" aria-expanded="false" aria-controls="natdespesas-basic">
           <i class="mdi mdi-format-list-bulleted-type menu-icon"></i>
           <span class="menu-title">Natureza da despesa</span>
+          <i class="menu-arrow"></i>
         </a>
+        <div class="collapse" id="natdespesas-basic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'nat_despesas:listar_natdespesas' %}">Listar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'nat_despesas:inserir_natdespesa' %}">Cadastrar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Relatório</a>
+            </li>
+          </ul>
+        </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'fornecedores:listar_fornecedores' %}">
+        <a class="nav-link" data-toggle="collapse" href="#fornecedores" aria-expanded="false" aria-controls="fornecedores">
           <i class="mdi mdi-truck menu-icon"></i>
           <span class="menu-title">Fornecedores</span>
+          <i class="menu-arrow"></i>
         </a>
+        <div class="collapse" id="fornecedores">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'fornecedores:listar_fornecedores' %}">Listar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'fornecedores:inserir_fornecedor' %}">Cadastrar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Typography</a>
+            </li>
+          </ul>
+        </div>
       </li>
+
+
+
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="mdi mdi-crosshairs-gps menu-icon"></i>
