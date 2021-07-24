@@ -9,6 +9,8 @@ APPS_DIR = os.path.join(BASE_DIR, 'apps')
 
 sys.path.insert(0, APPS_DIR)
 
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -35,8 +37,7 @@ THIRD_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'django_extensions',
-
-
+    # 'debug_toolbar',
 ]
 
 PROJECT_APPS = [
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'financas.urls'
@@ -137,3 +139,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]

@@ -7,8 +7,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Plus Admin</title>
-    <!-- plugins:css -->
 
+    <!-- Datasets -->
+    <link rel="stylesheet" href="{% static 'datatables-1.10.20/css/dataTables.bootstrap4.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'datatables-1.10.20/plugins/responsive-2.2.3/css/responsive.bootstrap4.min.css' %}"/>
+    <script src="{% static 'datatables-1.10.20/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'datatables-1.10.20/plugins/responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'datatables-1.10.20/plugins/responsive-2.2.3/js/responsive.bootstrap4.min.js' %}"></script>
+
+
+    <!-- plugins:css -->
     <link rel="stylesheet" href="{% static 'assets/vendors/mdi/css/materialdesignicons.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/vendors/flag-icon-css/css/flag-icon.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.base.css' %}">
@@ -17,8 +25,13 @@
     <link rel="stylesheet" href="{% static 'assets/vendors/jquery-bar-rating/css-stars.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/vendors/font-awesome/css/font-awesome.min.css' %}" />
     <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
+
+    <!-- Functions -->
+    <script src="{% static 'assets/js/functions.js' %}"></script>
+
+    <!-- jquery.dataTables.js -->
+    <script src="{% static 'datatables-1.10.20/js/jquery.dataTables.js' %}"></script>
+
     <!-- Layout styles -->
     <link rel="stylesheet" href="{% static 'assets/css/demo_1/style.css' %}" />
     <!-- End layout styles -->
@@ -47,8 +60,14 @@
 <script src="{% static 'assets/js/settings.js' %}"></script>
 <script src="{% static 'assets/js/todolist.js' %}"></script>
 
+
 <!-- Custom js for this page -->
 <script src="{% static 'assets/js/chart.js' %}"></script>
 <script src="{% static 'assets/js/dashboard.js' %}"></script>
+<script type="application/javascript">
+        $(function() {
+            $('#dataTable').DataTable();
+        });
+</script>
 </body>
 </html>
