@@ -7,21 +7,31 @@
 {% block pages %}
 <div class="main-panel">
     <div class="content-wrapper pb-0">
-        <div class="header-left">boo
+        <div class="header-left">
             <div class="row">
                 <div class="col-xl-12 stretch-card grid-margin">
                     <div class="card">
                         <div class="card-body">
                             <div class="card">
                                 <div class="card-header">
-                                    <h2 class="pull-left"><i class="fa fa-table menu-icon"></i> Listagens de Despesas
-                                    </h2>
+                                    <h2 class="pull-left"><i class="fa fa-table menu-icon"></i> Listagens de Despesas</h2>
                                     <form class="form-inline pull-right">
                                         <div style="float: right;">
-                                            <a class="btn btn-primary btn-sm"
-                                               href="{% url 'despesas:inserir_despesa' %}"><i
-                                                    class="fa fa-plus"></i><span> Cadastrar</span></a>
+                                            <a class="btn btn-primary btn-sm" href="{% url 'despesas:inserir_despesa' %}">
+                                                <i class="fa fa-plus"></i>
+                                                <span> Cadastrar</span>
+                                            </a>
                                         </div>
+                                    </form>
+                                </div>
+                                <div class="card-header">
+                                    <h5 class="pull-left"></i> Filtro:</h5>
+                                    <form class="form-inline my2-lg-0 pull-right">
+                                        <label>Data Inicial</label>
+                                        <input class="form-control ml-sm-2 mr-sm-2" name='start_date' type="date">
+                                        <label>Data Final</label>
+                                        <input class="form-control ml-sm-2 mr-sm-2" name='end_date' type="date">
+                                        <button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="mdi mdi-search-web"></i></button>
                                     </form>
                                 </div>
                                 <div class="card-body">
@@ -39,23 +49,24 @@
                                                 <th><strong>Status</strong></th>
                                                 <th><strong>Itens</strong></th>
                                                 <th><strong>Ações</strong></th>
+
                                             </tr>
                                             </thead>
                                             <tbody>
                                             {% for d in despesas %}
                                             <tr>
                                                 <td>{{ d.id }}</td>
-                                                <td>{{ d.des_datadespesa | date:'m/d/Y' }}</td>
+                                                <td>{{ d.des_datadespesa | date:'d/m/Y' }}</td>
                                                 <td>{{ d.nat_despesa }}</td>
-                                                <td>{{ d.des_valordespesa }}</td>
+                                                <td align="right">{{ d.des_valordespesa | floatformat:2 }}</td>
                                                 <td>{{ d.fornecedor }}</td>
                                                 <td>{{ d.meiodepagamento }}</td>
                                                 {% if d.des_status == '1' %}
-                                                    <td><span class="badge badge-success">{{ d.get_des_status_display }}</span></td>
+                                                    <td><span class="badge rounded-pill bg-success">{{ d.get_des_status_display }}</span></td>
                                                 {% elif d.des_status == '2' %}
-                                                <td><span class="badge badge-warning">{{ d.get_des_status_display }}</span></td>
+                                                <td><span class="badge rounded-pill bg-warning">{{ d.get_des_status_display }}</span></td>
                                                 {% else %}
-                                                    <td><span class="badge badge-danger">{{ d.get_des_status_display }}</span></td>
+                                                    <td><span class="badge rounded-pill bg-danger">{{ d.get_des_status_display }}</span></td>
                                                 {% endif %}
                                                 <td>{{ d.des_itensdespesa | truncatewords_html:2 }}</td>
                                                 <td style="text-align: center; vertical-align: middle;">
@@ -74,6 +85,11 @@
                                                 </td>
                                             </tr>
                                             {% endfor %}
+                                            <tr>
+                                                <td colspan="3"><strong>Total</strong></td>
+                                                <td align="right" colspan="1"><strong>{{ total_despesas.des_valordespesa__sum | floatformat:2  }}</strong></td>
+                                                <td colspan="5"></td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>

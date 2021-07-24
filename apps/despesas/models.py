@@ -22,7 +22,7 @@ class Despesa(models.Model):
     des_obs = models.TextField('Observações', null=True, blank=True)
 
     def __str__(self):
-        return self.nat_despesa
+        return self.des_itensdespesa
 
     class Meta:
         db_table = 'despesa'
