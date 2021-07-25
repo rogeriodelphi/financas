@@ -5,6 +5,12 @@
 {% load crispy_forms_tags %}
 
 {% block pages %}
+<link rel="stylesheet" href="{% static 'lib/datatables-1.10.20/css/dataTables.bootstrap4.min.css' %}"/>
+<link rel="stylesheet" href="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/css/responsive.bootstrap4.min.css' %}"/>
+<script src="{% static 'lib/datatables-1.10.20/js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/responsive.bootstrap4.min.js' %}"></script>
 <div class="main-panel">
     <div class="content-wrapper pb-0">
         <div class="header-left">
@@ -36,60 +42,65 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table id="dataTable" class="table table-bordered table-striped" width="100%"
-                                               cellspacing="0">
+                                        <table id="dataTable" class="table table-bordered table-striped" width="100%" cellspacing="0">
                                             <thead>
-                                            <tr style="text-align: center">
-                                                <th><strong>ID</strong></th>
-                                                <th><strong>Data</strong></th>
-                                                <th><strong>Natureza</strong></th>
-                                                <th><strong>Valor</strong></th>
-                                                <th><strong>Fornecedor</th>
-                                                <th><strong>Meio de Pagamento</strong></th>
-                                                <th><strong>Status</strong></th>
-                                                <th><strong>Itens</strong></th>
-                                                <th><strong>Ações</strong></th>
-
-                                            </tr>
+                                                <tr class="bg-inverse-success" style="text-align: center">
+                                                    <th><strong>ID</strong></th>
+                                                    <th><strong>Data</strong></th>
+                                                    <th><strong>Natureza</strong></th>
+                                                    <th><strong>Valor</strong></th>
+                                                    <th><strong>Fornecedor</th>
+                                                    <th><strong>Meio de Pagamento</strong></th>
+                                                    <th><strong>Status</strong></th>
+                                                    <th><strong>Itens</strong></th>
+                                                    <th><strong>Ações</strong></th>
+                                                </tr>
                                             </thead>
                                             <tbody>
-                                            {% for d in despesas %}
-                                            <tr>
-                                                <td>{{ d.id }}</td>
-                                                <td>{{ d.des_datadespesa | date:'d/m/Y' }}</td>
-                                                <td>{{ d.nat_despesa }}</td>
-                                                <td align="right">{{ d.des_valordespesa | floatformat:2 }}</td>
-                                                <td>{{ d.fornecedor }}</td>
-                                                <td>{{ d.meiodepagamento }}</td>
-                                                {% if d.des_status == '1' %}
-                                                    <td><span class="badge rounded-pill bg-success">{{ d.get_des_status_display }}</span></td>
-                                                {% elif d.des_status == '2' %}
-                                                <td><span class="badge rounded-pill bg-warning">{{ d.get_des_status_display }}</span></td>
-                                                {% else %}
-                                                    <td><span class="badge rounded-pill bg-danger">{{ d.get_des_status_display }}</span></td>
-                                                {% endif %}
-                                                <td>{{ d.des_itensdespesa | truncatewords_html:2 }}</td>
-                                                <td style="text-align: center; vertical-align: middle;">
-                                                    <a href="{% url 'despesas:listar_detalhe_despesa' d.id %}">
-                                                        <i class="fa fa-search" aria-hidden="true"
-                                                           style="color: green;"></i>
-                                                    </a>
-                                                    <a href="{% url 'despesas:editar_despesa' d.id %}">
-                                                        <i class="fa fa-edit" aria-hidden="true"
-                                                           style="color: blue;"></i>
-                                                    </a>
-                                                    <a href="{% url 'despesas:excluir_despesa' d.id %}">
-                                                        <i class="mdi mdi-delete" aria-hidden="true"
-                                                           style="color: red;"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            {% endfor %}
-                                            <tr>
-                                                <td colspan="3"><strong>Total</strong></td>
-                                                <td align="right" colspan="1"><strong>{{ total_despesas.des_valordespesa__sum | floatformat:2  }}</strong></td>
-                                                <td colspan="5"></td>
-                                            </tr>
+                                                {% for d in despesas %}
+                                                <tr>
+                                                    <td>{{ d.id }}</td>
+                                                    <td>{{ d.des_datadespesa | date:'d/m/Y' }}</td>
+                                                    <td>{{ d.nat_despesa }}</td>
+                                                    <td align="right">{{ d.des_valordespesa | floatformat:2 }}</td>
+                                                    <td>{{ d.fornecedor }}</td>
+                                                    <td>{{ d.meiodepagamento }}</td>
+                                                    {% if d.des_status == '1' %}
+                                                        <td><span class="badge rounded-pill bg-success">{{ d.get_des_status_display }}</span></td>
+                                                    {% elif d.des_status == '2' %}
+                                                    <td><span class="badge rounded-pill bg-warning">{{ d.get_des_status_display }}</span></td>
+                                                    {% else %}
+                                                        <td><span class="badge rounded-pill bg-danger">{{ d.get_des_status_display }}</span></td>
+                                                    {% endif %}
+                                                    <td>{{ d.des_itensdespesa | truncatewords_html:2 }}</td>
+                                                    <td style="text-align: center; vertical-align: middle;">
+                                                        <a href="{% url 'despesas:listar_detalhe_despesa' d.id %}">
+                                                            <i class="fa fa-search" aria-hidden="true"
+                                                               style="color: green;"></i>
+                                                        </a>
+                                                        <a href="{% url 'despesas:editar_despesa' d.id %}">
+                                                            <i class="fa fa-edit" aria-hidden="true"
+                                                               style="color: blue;"></i>
+                                                        </a>
+                                                        <a href="{% url 'despesas:excluir_despesa' d.id %}">
+                                                            <i class="mdi mdi-delete" aria-hidden="true"
+                                                               style="color: red;"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                                <tr></tr>
+                                                <tr>
+                                                    <td class="bg-inverse-danger" rowspan="2"><strong>Resumo</strong></td>
+                                                    <td class="bg-inverse-danger" colspan="2"><strong>Total</strong></td>
+                                                    <td class="bg-inverse-danger" align="right" colspan="1"><strong>{{ total_despesas.des_valordespesa__sum | floatformat:2  }}</strong></td>
+                                                    <td class="bg-inverse-danger"colspan="5"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bg-inverse-danger" colspan="2"><strong>Média</strong></td>
+                                                    <td class="bg-inverse-danger" align="right" colspan="1"><strong>{{ media_despesas.des_valordespesa__avg | floatformat:2  }}</strong></td>
+                                                    <td class="bg-inverse-danger"colspan="5"></td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -101,5 +112,10 @@
             </div>
         </div>
     </div>
+
+
 </div>
+<script type="application/javascript">
+    (function () { $("#dataTable").DataTable(); })();
+</script>
 {% endblock pages %}

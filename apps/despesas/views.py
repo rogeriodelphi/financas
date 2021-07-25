@@ -1,7 +1,7 @@
 from dateutil.parser import parse
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
-from django.db.models import Sum
+from django.db.models import Sum, Avg
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
@@ -11,11 +11,14 @@ from .models import Despesa
 
 from weasyprint import HTML
 
+
 @login_required()
 def listar_despesas(request):
     template_name = 'despesas/listar_despesas.html'
     despesas = Despesa.objects.all()
     total_despesas = Despesa.objects.all().aggregate(Sum('des_valordespesa'))
+    media_despesas = Despesa.objects.all().aggregate(Avg('des_valordespesa'))
+
     start_date = request.GET.get('start_date')
     end_date = request.GET.get('end_date')
 
@@ -23,19 +26,26 @@ def listar_despesas(request):
     if start_date and not end_date:
         despesas = despesas.filter(des_datadespesa=start_date)
         total_despesas = Despesa.objects.filter(des_datadespesa=start_date).aggregate(Sum('des_valordespesa'))
+        media_despesas = Despesa.objects.filter(des_datadespesa=start_date).aggregate(Avg('des_valordespesa'))
     # Retorna a consulta se apenas a data inicial estiver preenchida
     elif not start_date and end_date:
         despesas = despesas.filter(des_datadespesa=end_date)
         total_despesas = Despesa.objects.filter(des_datadespesa=end_date).aggregate(Sum('des_valordespesa'))
+        media_despesas = Despesa.objects.filter(des_datadespesa=end_date).aggregate(Avg('des_valordespesa'))
     # Retorna a consulta de ambas as datas estarem preenchidas
     if start_date and end_date:
         # o parse Converte em data e adiciona um dia.
         end_date = parse(end_date)
         despesas = despesas.filter(des_datadespesa__range=[start_date, end_date])
-        total_despesas = Despesa.objects.filter(des_datadespesa__range=[start_date, end_date]).aggregate(Sum('des_valordespesa'))
+        total_despesas = Despesa.objects.filter(des_datadespesa__range=[start_date, end_date]).aggregate(
+            Sum('des_valordespesa'))
+        media_despesas = Despesa.objects.filter(des_datadespesa__range=[start_date, end_date]).aggregate(
+            Avg('des_valordespesa'))
+
     context = {
         'despesas': despesas,
         'total_despesas': total_despesas,
+        'media_despesas': media_despesas,
     }
     return render(request, template_name, context)
 
@@ -107,8 +117,6 @@ def rel_despesas(request):
         # Abre o PDF direto no navegador
         response['Content-Disposition'] = 'attachment; filename="rel_despesas.pdf"'
     return response
-
-
 
 # @login_required()
 # def consultar_despesas(request):

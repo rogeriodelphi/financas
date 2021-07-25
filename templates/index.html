@@ -321,6 +321,16 @@
     </nav>
     {% block pages %}
     {% endblock pages %}
+
+    {% block javascript %}
+    <script>
+      $(document).ready( function () {
+        $('#tableTable').DataTable();
+      } );
+    </script>
+    {% endblock javascript %}
+
+
   </div>
   <!-- page-body-wrapper ends -->
 </div>
