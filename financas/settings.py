@@ -37,7 +37,6 @@ THIRD_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'django_extensions',
-    # 'debug_toolbar',
 ]
 
 PROJECT_APPS = [
@@ -49,7 +48,6 @@ PROJECT_APPS = [
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + PROJECT_APPS
-
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
@@ -139,7 +137,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
 
 INTERNAL_IPS = [
     '127.0.0.1',

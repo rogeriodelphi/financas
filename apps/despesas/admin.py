@@ -7,3 +7,8 @@ from .models import Despesa
 class FornecedorAdmin(admin.ModelAdmin):
     list_display = ['id', 'des_datadespesa', 'des_valordespesa', 'nat_despesa',
                     'fornecedor', 'meiodepagamento', 'des_status', 'des_itensdespesa']
+
+    # list_filter = (
+    #     ('des_datadespesa', DateRangeFilter),
+    #     'des_valordespesa',
+    # )
