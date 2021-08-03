@@ -18,6 +18,16 @@ def tables(request):
 def forms(request):
     return render(request, 'basic_elements.html')
 
+# @login_required(login_url='/contas/login/')
+# def dashboard_plus(request):
+#     return render(request, 'dashboard_plus.html')
+
+
+@login_required(login_url='/contas/login/')
+def home(request):
+    return render(request, 'home.html')
+
+
 @login_required(login_url='/contas/login/')
 def dashboard(request):
     return render(request, 'dashboard.html')
