@@ -1,25 +1,10 @@
 {% extends 'home.html' %}
 
-{% load crispy_forms_tags %}
-
 {% block titulo %}
 Listagem de Fornecedores
 {% endblock titulo %}
 
 {% load static %}
-
-
-<!--&lt;!&ndash; Google Font: Source Sans Pro &ndash;&gt;-->
-<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">-->
-<!--&lt;!&ndash; Font Awesome &ndash;&gt;-->
-<link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
-<!-- DataTables -->
-<link rel="stylesheet" href="{% static 'plugins/datatables-bs4/css/dataTables.bootstrap4.min.css' %}">
-<link rel="stylesheet" href="{% static 'plugins/datatables-responsive/css/responsive.bootstrap4.min.css' %}">
-<link rel="stylesheet" href="{% static 'plugins/datatables-buttons/css/buttons.bootstrap4.min.css' %}">
-<!-- Theme style -->
-<link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
-
 
 {% block pages %}
 <div class="main-panel">
@@ -33,16 +18,20 @@ Listagem de Fornecedores
                                 <h2 class="pull-left"><i class="fa fa-table menu-icon"></i> Listagens  de Fornecedores</h2>
                                 <form class="form-inline pull-right">
                                     <div style="float: right;">
-                                        <a class="btn btn-primary btn-sm" href="{% url 'fornecedores:inserir_fornecedor' %}"><i class="fa fa-plus"></i><span> Cadastrar</span></a>
+                                        <a class="btn btn-primary btn-sm" href="{% url 'fornecedores:inserir_fornecedor' %}">
+                                            <i class="fa fa-plus"></i>
+                                            <span> Cadastrar</span>
+                                        </a>
                                     </div>
                                 </form>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table id="example2" class="table table-bordered table-striped">
 <!--                                    <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">-->
                                         <thead>
                                         <tr style="text-align: center">
+                                            <th>Id</th>
                                             <th>Fornecedor</th>
                                             <th>Telefone</th>
                                             <th>Obs</th>
@@ -52,6 +41,7 @@ Listagem de Fornecedores
                                         <tbody>
                                         {% for f in fornecedores %}
                                         <tr>
+                                            <td>{{ f.id }}</td>
                                             <td>{{ f.for_fornecedor }}</td>
                                             <td>{{ f.for_fone }}</td>
                                             <td>{{ f.for_obs }}</td>
@@ -80,43 +70,3 @@ Listagem de Fornecedores
     </div>
 </div>
 {% endblock pages %}
-
-<!-- jQuery -->
-<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
-<!-- Bootstrap 4 -->
-<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<!-- DataTables  & Plugins -->
-<script src="{% static 'plugins/datatables/jquery.dataTables.min.js' %}"></script>
-<script src="{% static 'plugins/datatables-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
-<script src="{% static 'plugins/datatables-responsive/js/dataTables.responsive.min.js' %}"></script>
-<script src="{% static 'plugins/datatables-responsive/js/responsive.bootstrap4.min.js' %}"></script>
-<script src="{% static 'plugins/datatables-buttons/js/dataTables.buttons.min.js' %}"></script>
-<script src="{% static 'plugins/datatables-buttons/js/buttons.bootstrap4.min.js' %}"></script>
-<script src="{% static 'plugins/jszip/jszip.min.js' %}"></script>
-<script src="{% static 'plugins/pdfmake/pdfmake.min.js' %}"></script>
-<script src="{% static 'plugins/pdfmake/vfs_fonts.js' %}"></script>
-<script src="{% static 'plugins/datatables-buttons/js/buttons.html5.min.js' %}"></script>
-<script src="{% static 'plugins/datatables-buttons/js/buttons.print.min.js' %}"></script>
-<script src="{% static 'plugins/datatables-buttons/js/buttons.colVis.min.js' %}"></script>
-<!-- AdminLTE App -->
-<script src="{% static 'dist/js/adminlte.min.js' %}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{% static 'dist/js/demo.js' %}"></script>
-<!-- Page specific script -->
-<script>
-    $(function () {
-        $("#example1").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
-    });
-</script>

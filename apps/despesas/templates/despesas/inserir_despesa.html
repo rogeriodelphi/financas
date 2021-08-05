@@ -10,84 +10,82 @@ Cadastro de Despesas
 
 {% block pages %}
 <div class="main-panel">
-    <div class="content-wrapper pb-0">
-        <div class="header-left">
-            <div class="row">
-                <div class="col-xl-12 stretch-card grid-margin">
-                    <div class="container">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h2><i class="mdi mdi-pencil menu-icon"></i> Cadastro de Despesas</h2>
-                                    </div>
-                                    <div class="card-body">
-                                        <form method="POST">
-                                            {% csrf_token %}
-                                            <div class="p-3 mb-2 bg-light text-dark">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        {{ form.des_datadespesa.errors }}
-                                                        {{ form.des_datadespesa | as_crispy_field }}
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        {{ form.des_valordespesa.errors }}
-                                                        {{ form.des_valordespesa | as_crispy_field }}
-                                                    </div>
+    <div class="header-left">
+        <div class="row">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2><i class="mdi mdi-pencil menu-icon"></i> Cadastro de Despesas</h2>
+                                </div>
+                                <div class="card-body">
+                                    <form method="POST">
+                                        {% csrf_token %}
+                                        <div class="p-3 mb-2 bg-light text-dark">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    {{ form.des_datadespesa.errors }}
+                                                    {{ form.des_datadespesa | as_crispy_field }}
+                                                </div>
+                                                <div class="col-md-6">
+                                                    {{ form.des_valordespesa.errors }}
+                                                    {{ form.des_valordespesa | as_crispy_field }}
                                                 </div>
                                             </div>
-                                            <div class="p-3 mb-2 bg-light text-dark">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        {{ form.nat_despesa.errors }}
-                                                        {{ form.nat_despesa | as_crispy_field }}
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        {{ form.fornecedor.errors }}
-                                                        {{ form.fornecedor | as_crispy_field }}
-                                                    </div>
+                                        </div>
+                                        <div class="p-3 mb-2 bg-light text-dark">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    {{ form.nat_despesa.errors }}
+                                                    {{ form.nat_despesa | as_crispy_field }}
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        {{ form.meiodepagamento.errors }}
-                                                        {{ form.meiodepagamento | as_crispy_field }}
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        {{ form.des_status.errors }}
-                                                        {{ form.des_status | as_crispy_field }}
-                                                    </div>
+                                                <div class="col-md-6">
+                                                    {{ form.fornecedor.errors }}
+                                                    {{ form.fornecedor | as_crispy_field }}
                                                 </div>
                                             </div>
-                                            <div class="p-3 mb-2 bg-light text-dark">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        {{ form.des_itensdespesa.errors }}
-                                                        {{ form.des_itensdespesa | as_crispy_field }}
-                                                    </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    {{ form.meiodepagamento.errors }}
+                                                    {{ form.meiodepagamento | as_crispy_field }}
+                                                </div>
+                                                <div class="col-md-6">
+                                                    {{ form.des_status.errors }}
+                                                    {{ form.des_status | as_crispy_field }}
                                                 </div>
                                             </div>
-                                            <div class="p-3 mb-2 bg-light text-dark">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        {{ form.des_obs.errors }}
-                                                        {{ form.des_obs | as_crispy_field }}
-                                                    </div>
+                                        </div>
+                                        <div class="p-3 mb-2 bg-light text-dark">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    {{ form.des_itensdespesa.errors }}
+                                                    {{ form.des_itensdespesa | as_crispy_field }}
                                                 </div>
                                             </div>
-                                            <div class="p-3 mb-2 bg-light text-dark">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <button type="submit" class="btn btn-primary mr-2">
-                                                            <i class="mdi mdi-content-save"></i> Salvar
-                                                        </button>
-                                                        <button type="button" class="btn btn-linkedin" onClick="history.go(-1)">
-                                                            <i class="fa fa-angle-double-left"></i> Voltar
-                                                        </button>
-                                                    </div>
+                                        </div>
+                                        <div class="p-3 mb-2 bg-light text-dark">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    {{ form.des_obs.errors }}
+                                                    {{ form.des_obs | as_crispy_field }}
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                        <div class="p-3 mb-2 bg-light text-dark">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button type="submit" class="btn btn-primary mr-2">
+                                                        <i class="mdi mdi-content-save"></i> Salvar
+                                                    </button>
+                                                    <button type="button" class="btn btn-linkedin" onClick="history.go(-1)">
+                                                        <i class="fa fa-angle-double-left"></i> Voltar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -1,109 +1,118 @@
 {% extends 'home.html' %}
 
+{% block titulo %}
+Listagem de Despesas
+{% endblock titulo %}
+
 {% load static %}
 
-{% load crispy_forms_tags %}
-
 {% block pages %}
-<link rel="stylesheet" href="{% static 'lib/datatables-1.10.20/css/dataTables.bootstrap4.min.css' %}"/>
-<link rel="stylesheet" href="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/css/responsive.bootstrap4.min.css' %}"/>
-<script src="{% static 'lib/datatables-1.10.20/js/jquery.dataTables.js' %}"></script>
-<script src="{% static 'lib/datatables-1.10.20/js/dataTables.bootstrap4.min.js' %}"></script>
-<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
-<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/responsive.bootstrap4.min.js' %}"></script>
 <div class="main-panel">
-    <div class="content-wrapper pb-0">
-        <div class="header-left">
-            <div class="row">
-                <div class="col-xl-12 stretch-card grid-margin">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h2 class="pull-left"><i class="fa fa-table menu-icon"></i> Listagens de Despesas</h2>
-                                    <form class="form-inline pull-right">
-                                        <div style="float: right;">
-                                            <a class="btn btn-primary btn-sm" href="{% url 'despesas:inserir_despesa' %}">
-                                                <i class="fa fa-plus"></i>
-                                                <span> Cadastrar</span>
-                                            </a>
+    <div class="header-left">
+        <div class="row">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-header">
+                                <!-- Content Header (Page header) -->
+                                <div class="content-header">
+                                    <div class="container-fluid">
+                                        <div class="row mb-0">
+                                            <div class="col-sm-6">
+                                                <h1 class="m-0"><i class="fa fa-table menu-icon"></i> Listagens de Despesas</h1>
+                                            </div><!-- /.col -->
+                                            <div class="col-sm-6">
+                                                <ol class="breadcrumb float-sm-right">
+                                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                                    <li class="breadcrumb-item active">Listagem de Despesas</li>
+                                                </ol>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <ol class="botao float-sm-right">
+                                                    <a class="btn btn-primary btn-sm" href="{% url 'despesas:inserir_despesa' %}">
+                                                        <i class="fa fa-plus"></i>
+                                                        <span> Cadastrar</span>
+                                                    </a>
+                                                </ol>
+                                            </div>
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="card-header">
-                                    <h5 class="pull-left"></i> Filtro:</h5>
-                                    <form class="form-inline my2-lg-0 pull-right">
-                                        <label>Data Inicial</label>
-                                        <input class="form-control ml-sm-2 mr-sm-2" name='start_date' type="date">
-                                        <label>Data Final</label>
-                                        <input class="form-control ml-sm-2 mr-sm-2" name='end_date' type="date">
-                                        <button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="mdi mdi-search-web"></i></button>
-                                    </form>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table id="dataTable" class="table table-bordered table-striped" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr class="bg-inverse-success" style="text-align: center">
-                                                    <th><strong>ID</strong></th>
-                                                    <th><strong>Data</strong></th>
-                                                    <th><strong>Natureza</strong></th>
-                                                    <th><strong>Valor</strong></th>
-                                                    <th><strong>Fornecedor</th>
-                                                    <th><strong>Meio de Pagamento</strong></th>
-                                                    <th><strong>Status</strong></th>
-                                                    <th><strong>Itens</strong></th>
-                                                    <th><strong>Ações</strong></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {% for d in despesas %}
-                                                <tr>
-                                                    <td>{{ d.id }}</td>
-                                                    <td>{{ d.des_datadespesa | date:'d/m/Y' }}</td>
-                                                    <td>{{ d.nat_despesa }}</td>
-                                                    <td align="right">{{ d.des_valordespesa | floatformat:2 }}</td>
-                                                    <td>{{ d.fornecedor }}</td>
-                                                    <td>{{ d.meiodepagamento }}</td>
-                                                    {% if d.des_status == '1' %}
-                                                        <td><span class="badge rounded-pill bg-success">{{ d.get_des_status_display }}</span></td>
-                                                    {% elif d.des_status == '2' %}
-                                                    <td><span class="badge rounded-pill bg-warning">{{ d.get_des_status_display }}</span></td>
-                                                    {% else %}
-                                                        <td><span class="badge rounded-pill bg-danger">{{ d.get_des_status_display }}</span></td>
-                                                    {% endif %}
-                                                    <td>{{ d.des_itensdespesa | truncatewords_html:2 }}</td>
-                                                    <td style="text-align: center; vertical-align: middle;">
-                                                        <a href="{% url 'despesas:listar_detalhe_despesa' d.id %}">
-                                                            <i class="fa fa-search" aria-hidden="true"
-                                                               style="color: green;"></i>
-                                                        </a>
-                                                        <a href="{% url 'despesas:editar_despesa' d.id %}">
-                                                            <i class="fa fa-edit" aria-hidden="true"
-                                                               style="color: blue;"></i>
-                                                        </a>
-                                                        <a href="{% url 'despesas:excluir_despesa' d.id %}">
-                                                            <i class="mdi mdi-delete" aria-hidden="true"
-                                                               style="color: red;"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                {% endfor %}
-                                                <tr></tr>
-                                                <tr>
-                                                    <td class="bg-inverse-danger" rowspan="2"><strong>Resumo</strong></td>
-                                                    <td class="bg-inverse-danger" colspan="2"><strong>Total</strong></td>
-                                                    <td class="bg-inverse-danger" align="right" colspan="1"><strong>{{ total_despesas.des_valordespesa__sum | floatformat:2  }}</strong></td>
-                                                    <td class="bg-inverse-danger"colspan="5"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="bg-inverse-danger" colspan="2"><strong>Média</strong></td>
-                                                    <td class="bg-inverse-danger" align="right" colspan="1"><strong>{{ media_despesas.des_valordespesa__avg | floatformat:2  }}</strong></td>
-                                                    <td class="bg-inverse-danger"colspan="5"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="card-header">
+                                <h5 class="pull-left"></i> Filtro:</h5>
+                                <form class="form-inline my2-lg-0 float-sm-right">
+                                    <label>Data Inicial</label>
+                                    <input class="form-control ml-sm-2 mr-sm-2" name='start_date' type="date">
+                                    <label>Data Final</label>
+                                    <input class="form-control ml-sm-2 mr-sm-2" name='end_date' type="date">
+                                    <button class="btn btn-primary btn-sm" type="submit"><i class="fas fa-search"></i></button>
+                                </form>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+<!--                                    <table id="example1" class="table table-bordered table-striped" width="100%" cellspacing="0">-->
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr class="bg-inverse-success" style="text-align: center">
+                                                <th><strong>ID</strong></th>
+                                                <th><strong>Data</strong></th>
+                                                <th><strong>Natureza</strong></th>
+                                                <th><strong>Valor</strong></th>
+                                                <th><strong>Fornecedor</strong></th>
+                                                <th><strong>Meio de Pagamento</strong></th>
+                                                <th><strong>Status</strong></th>
+                                                <th><strong>Itens</strong></th>
+                                                <th><strong>Ações</strong></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for d in despesas %}
+                                            <tr>
+                                                <td>{{ d.id }}</td>le.js<td>{{ d.des_datadespesa | date:'d/m/Y' }}</td>
+                                                <td>{{ d.nat_despesa }}</td>
+                                                <td align="right">{{ d.des_valordespesa | floatformat:2 }}</td>
+                                                <td>{{ d.fornecedor }}</td>
+                                                <td>{{ d.meiodepagamento }}</td>
+                                                {% if d.des_status == '1' %}
+                                                    <td><span class="badge rounded-pill bg-success">{{ d.get_des_status_display }}</span></td>
+                                                {% elif d.des_status == '2' %}
+                                                <td><span class="badge rounded-pill bg-warning">{{ d.get_des_status_display }}</span></td>
+                                                {% else %}
+                                                    <td><span class="badge rounded-pill bg-danger">{{ d.get_des_status_display }}</span></td>
+                                                {% endif %}
+                                                <td>{{ d.des_itensdespesa | safe | truncatewords_html:2 }}</td>
+                                                <td style="text-align: center; vertical-align: middle;">
+                                                    <a href="{% url 'despesas:listar_detalhe_despesa' d.id %}">
+                                                        <i class="fa fa-search" aria-hidden="true"
+                                                           style="color: green;"></i>
+                                                    </a>
+                                                    <a href="{% url 'despesas:editar_despesa' d.id %}">
+                                                        <i class="fa fa-edit" aria-hidden="true"
+                                                           style="color: blue;"></i>
+                                                    </a>
+                                                    <a href="{% url 'despesas:excluir_despesa' d.id %}">
+                                                        <i class="mdi mdi-delete" aria-hidden="true"
+                                                           style="color: red;"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+<!--                                            <tr></tr>-->
+<!--                                            <tr>-->
+<!--                                                <td class="bg-inverse-danger" rowspan="2"><strong>Resumo</strong></td>-->
+<!--                                                <td class="bg-inverse-danger" colspan="2"><strong>Total</strong></td>-->
+<!--                                                <td class="bg-inverse-danger" align="right" colspan="1"><strong>{{ total_despesas.des_valordespesa__sum | floatformat:2  }}</strong></td>-->
+<!--                                                <td class="bg-inverse-danger"colspan="5"></td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td class="bg-inverse-danger" colspan="2"><strong>Média</strong></td>-->
+<!--                                                <td class="bg-inverse-danger" align="right" colspan="1"><strong>{{ media_despesas.des_valordespesa__avg | floatformat:2  }}</strong></td>-->
+<!--                                                <td class="bg-inverse-danger"colspan="5"></td>-->
+<!--                                            </tr>-->
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -112,10 +121,5 @@
             </div>
         </div>
     </div>
-
-
 </div>
-<script type="application/javascript">
-    (function () { $("#dataTable").DataTable(); })();
-</script>
 {% endblock pages %}

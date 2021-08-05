@@ -32,6 +32,11 @@ def home(request):
 def dashboard(request):
     return render(request, 'dashboard.html')
 
+@login_required(login_url='/contas/login/')
+def pages(request):
+    return render(request, 'pages.html')
+
+
 # def home(request):
 #     return render(request, 'home.html')
 #
