@@ -8,4 +8,4 @@ class FornecedorForm(forms.ModelForm):
 
     class Meta:
         model = Fornecedor
-        fields = ['for_fornecedor', 'for_fone']
+        fields = ['for_fornecedor', 'for_fone', 'for_obs']
