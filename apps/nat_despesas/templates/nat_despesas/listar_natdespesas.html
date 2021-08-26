@@ -30,6 +30,7 @@ Listagem das Naturezas das Despesas
                                         <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                                             <thead>
                                             <tr style="text-align: center">
+                                                <th>ID</th>
                                                 <th>Natureza da Despesa</th>
                                                 <th>Ações</th>
                                             </tr>
@@ -37,6 +38,7 @@ Listagem das Naturezas das Despesas
                                             <tbody>
                                             {% for n in natdespesas %}
                                             <tr>
+                                                <td>{{ n.id }}</td>
                                                 <td>{{ n.nat_natdespesa }}</td>
                                                 <td style="text-align: center; vertical-align: middle;">
                                                     <a href="{% url 'nat_despesas:listar_detalhe_natdespesa' n.id %}">

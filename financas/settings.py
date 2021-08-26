@@ -42,10 +42,10 @@ THIRD_APPS = [
 
 PROJECT_APPS = [
     'apps.core',
-    'apps.nat_despesas',
     'apps.fornecedores',
-    'apps.despesas',
+    'apps.nat_despesas',
     'apps.meiodepagamentos',
+    'apps.despesas',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + PROJECT_APPS
@@ -80,8 +80,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # apps
                 'apps.despesas.context_processors.despesa_count',
-                'apps.despesas.context_processors.fornecedor_count',
                 'apps.despesas.context_processors.despesa_sum',
+                'apps.despesas.context_processors.natdespesa_count',
+                'apps.despesas.context_processors.fornecedor_count',
             ],
         },
     },
