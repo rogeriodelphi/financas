@@ -1,0 +1,16 @@
+insert into tabdespesa values(7232, '12/10/2021', 350, 85, 'Mensalidade Escolar', 202, 'CETEN', 2, 'A VENCER', 5, '', 'Mensalidade Escolar 12/12', '')
+/*
+    DES_CODDESPESA,
+    DES_DATADESPESA,
+    DES_VALORDESPESA,
+    DES_CODNATDESPESA,
+    DES_NATDESPESA,
+    DES_CODFORNECEDOR,
+    DES_FORNECEDOR,
+    DES_STATUSDESPESA,
+    DES_STATUS,
+    DES_CODMEIOPAGAMENTO,
+    DES_ITENSDESPESAS,
+    DES_OBS,
+    DES_MODALIDADECARTAO
+*/

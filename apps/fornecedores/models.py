@@ -11,6 +11,6 @@ class Fornecedor(models.Model):
 
     class Meta:
         db_table = 'fornecedor'
-        ordering = ['-for_fornecedor']
+        ordering = ['for_fornecedor']
         verbose_name = 'Fornecedor'
         verbose_name_plural = 'Fornecedores'

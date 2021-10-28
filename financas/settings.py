@@ -25,6 +25,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 DJANGO_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,10 +43,10 @@ THIRD_APPS = [
 
 PROJECT_APPS = [
     'apps.core',
-    'apps.fornecedores',
     'apps.nat_despesas',
     'apps.meiodepagamentos',
     'apps.despesas',
+    'apps.fornecedores',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + PROJECT_APPS
@@ -99,6 +100,19 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'financas-db',
+        'USER': 'postgres',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
