@@ -1,6 +1,6 @@
 {% extends 'home.html' %}
 
-{% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 {% block titulo %}
 Cadastro de Despesas
@@ -29,14 +29,6 @@ Cadastro de Despesas
                                                     <li class="breadcrumb-item active">Cadastro de Despesa</li>
                                                 </ol>
                                             </div>
-                                            <div class="col-sm-12">
-                                                <ol class="botao float-sm-right">
-                                                    <a class="btn btn-primary btn-sm" href="{% url 'despesas:inserir_despesa' %}">
-                                                        <i class="fa fa-plus"></i>
-                                                        <span> Cadastrar</span>
-                                                    </a>
-                                                </ol>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -47,11 +39,13 @@ Cadastro de Despesas
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     {{ form.des_datadespesa.errors }}
-                                                    {{ form.des_datadespesa | as_crispy_field }}
+                                                    <label for="{{ form.des_datadespesa.id_for_label }}">Data da Despesa</label>
+                                                    {{ form.des_datadespesa | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
                                                 <div class="col-md-6">
                                                     {{ form.des_valordespesa.errors }}
-                                                    {{ form.des_valordespesa | as_crispy_field }}
+                                                    <label for="{{ form.des_valordespesa.id_for_label }}">Valor</label>
+                                                    {{ form.des_valordespesa | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
                                             </div>
                                         </div>
@@ -59,21 +53,25 @@ Cadastro de Despesas
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     {{ form.nat_despesa.errors }}
-                                                    {{ form.nat_despesa | as_crispy_field }}
+                                                    <label for="{{ form.nat_despesa.id_for_label }}">Despesa</label>
+                                                    {{ form.nat_despesa | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
                                                 <div class="col-md-6">
                                                     {{ form.fornecedor.errors }}
-                                                    {{ form.fornecedor | as_crispy_field }}
+                                                    <label for="{{ form.fornecedor.id_for_label }}">Fornecedor</label>
+                                                    {{ form.fornecedor | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     {{ form.meiodepagamento.errors }}
-                                                    {{ form.meiodepagamento | as_crispy_field }}
+                                                    <label for="form.meiodepagamento.id_for_label">Meio de Pagamento</label>
+                                                    {{ form.meiodepagamento | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
                                                 <div class="col-md-6">
                                                     {{ form.des_status.errors }}
-                                                    {{ form.des_status | as_crispy_field }}
+                                                    <label for="form.des_status.id_for_label">Status</label>
+                                                    {{ form.des_status | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
                                             </div>
                                         </div>
@@ -81,7 +79,8 @@ Cadastro de Despesas
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     {{ form.des_itensdespesa.errors }}
-                                                    {{ form.des_itensdespesa | as_crispy_field }}
+                                                    <label for="{{ form.des_itensdespesa.id_for_label }}">Itens</label>
+                                                    {{ form.des_itensdespesa | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
                                             </div>
                                         </div>
@@ -89,7 +88,8 @@ Cadastro de Despesas
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     {{ form.des_obs.errors }}
-                                                    {{ form.des_obs | as_crispy_field }}
+                                                    <label for="{{ form.des_obs.id_for_label }}">Observações</label>
+                                                    {{ form.des_obs | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
                                             </div>
                                         </div>
@@ -97,9 +97,9 @@ Cadastro de Despesas
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <button type="submit" class="btn btn-primary mr-2">
-                                                        <i class="mdi mdi-content-save"></i> Salvar
+                                                        <i class="fa fa-save"></i> Salvar
                                                     </button>
-                                                    <button type="button" class="btn btn-linkedin" onClick="history.go(-1)">
+                                                    <button type="button" class="btn btn-success mr-2" onClick="history.go(-1)">
                                                         <i class="fa fa-angle-double-left"></i> Voltar
                                                     </button>
                                                 </div>
