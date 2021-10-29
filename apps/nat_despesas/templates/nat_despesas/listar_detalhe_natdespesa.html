@@ -22,14 +22,15 @@ Listagem das Naturezas das Despesas
                                 </div>
                                 <div class="card-body">
                                     <div class="card-header">
-                                        <a href="/listar/{{ natdespesa.id }}/"><h4>{{ natdespesa.nat_natdespesa }}</h4></a>
+                                        <a href="/listar/{{ natdespesa.id }}/"><h4>Despesa: {{ natdespesa.nat_natdespesa }}</h4></a>
                                     </div>
                                     <div class="card-body">
-                                        <p>{{ natdespesa.nat_obs }}</p>
+                                        <p>Observações: <strong>{{ natdespesa.nat_obs }}</strong></p>
                                     </div>
                                     <div class="card-footer">
-                                        <button type="button" class="btn btn-linkedin" onClick="history.go(-1)">
-                                            <i class="fa fa-angle-double-left"></i> Voltar</button>
+                                        <button type="button" class="btn btn-primary" onClick="history.go(-1)">
+                                            <i class="fa fa-angle-double-left"></i> Voltar
+                                        </button>
                                     </div>
                                 </div>
                             </div>

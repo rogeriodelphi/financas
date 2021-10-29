@@ -37,38 +37,37 @@ Cadastro de Despesa
                                         {% csrf_token %}
                                         <div class="p-3 mb-2 bg-light text-dark">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
                                                     {{ form.des_datadespesa.errors }}
                                                     <label for="{{ form.des_datadespesa.id_for_label }}">Data da Despesa</label>
                                                     {{ form.des_datadespesa | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
                                                     {{ form.des_valordespesa.errors }}
                                                     <label for="{{ form.des_valordespesa.id_for_label }}">Valor</label>
                                                     {{ form.des_valordespesa | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="p-3 mb-2 bg-light text-dark">
-                                            <div class="row">
                                                 <div class="col-md-6">
                                                     {{ form.nat_despesa.errors }}
                                                     <label for="{{ form.nat_despesa.id_for_label }}">Despesa</label>
                                                     {{ form.nat_despesa | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
-                                                <div class="col-md-6">
+
+                                            </div>
+                                        </div>
+                                        <div class="p-3 mb-2 bg-light text-dark">
+                                            <div class="row">
+                                                <div class="col-md-5">
                                                     {{ form.fornecedor.errors }}
                                                     <label for="{{ form.fornecedor.id_for_label }}">Fornecedor</label>
                                                     {{ form.fornecedor | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     {{ form.meiodepagamento.errors }}
                                                     <label for="form.meiodepagamento.id_for_label">Meio de Pagamento</label>
                                                     {{ form.meiodepagamento | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
                                                     {{ form.des_status.errors }}
                                                     <label for="form.des_status.id_for_label">Status</label>
                                                     {{ form.des_status | add_class:"form-control"|attr:"autofocus" }}
