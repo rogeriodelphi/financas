@@ -25,11 +25,11 @@ Detalhar Fornecedor
                                         <a href="/fornecedores/listar/{{ fornecedor.id }}/"><h4>{{ fornecedor.for_fornecedor }}</h4></a>
                                     </div>
                                     <div class="card-body">
-                                        <p>{{ fornecedor.for_fone }}</p>
-                                        <p>{{ fornecedor.for_obs }}</p>
+                                        <p>Telefone: <strong>{{ fornecedor.for_fone }}</strong></p>
+                                        <p>Obeservações: <strong>{{ fornecedor.for_obs }}</strong></p>
                                     </div>
                                     <div class="card-footer">
-                                        <button type="button" class="btn btn-linkedin" onClick="history.go(-1)">
+                                        <button type="button" class="btn btn-success" onClick="history.go(-1)">
                                             <i class="fa fa-angle-double-left"></i> Voltar
                                         </button>
                                     </div>

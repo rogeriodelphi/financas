@@ -1,6 +1,6 @@
 {% extends 'home.html' %}
 
-{% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 {% block titulo %}
 Cadastro de Fornecedor
@@ -47,11 +47,13 @@ Cadastro de Fornecedor
                                             <div class="row">
                                                 <div class="col-md-9">
                                                     {{ form.for_fornecedor.errors }}
-                                                    {{ form.for_fornecedor | as_crispy_field }}
+                                                    <label for="{{ form.for_fornecedor.id_for_label }}">Fornecedor</label>
+                                                    {{ form.for_fornecedor | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
                                                 <div class="col-md-3">
                                                     {{ form.for_fone.errors }}
-                                                    {{ form.for_fone | as_crispy_field }}
+                                                    <label for="{{ form.for_fone.id_for_label }}">Fone</label>
+                                                    {{ form.for_fone | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
                                             </div>
                                         </div>
@@ -59,7 +61,8 @@ Cadastro de Fornecedor
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     {{ form.for_obs.errors }}
-                                                    {{ form.for_obs | as_crispy_field }}
+                                                    <label for="{{ form.for_obs.id_for_label }}">Observações</label>
+                                                    {{ form.for_obs | add_class:"form-control"|attr:"autofocus" }}
                                                 </div>
                                             </div>
                                         </div>
