@@ -18,7 +18,7 @@ Listagem de Despesas
                                 <div class="container-fluid">
                                     <div class="row mb-0">
                                         <div class="col-sm-6">
-                                            <h1 class="m-0"><i class="fa fa-table menu-icon"></i> Listagens de Despesas</h1>
+                                            <h1 class="m-0"><i class="fa fa-table menu-icon"></i> Listagem de Despesas</h1>
                                         </div>
                                         <div class="col-sm-6">
                                             <ol class="breadcrumb float-sm-right">
@@ -26,19 +26,11 @@ Listagem de Despesas
                                                 <li class="breadcrumb-item active">Listagem de Despesas</li>
                                             </ol>
                                         </div>
-                                        <div class="col-sm-12">
-                                            <ol class="botao float-sm-right">
-                                                <a class="btn btn-primary btn-sm" href="{% url 'despesas:inserir_despesa' %}">
-                                                    <i class="fa fa-plus"></i>
-                                                    <span> Cadastrar</span>
-                                                </a>
-                                            </ol>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-header">
-                                <h5 class="pull-left"></i> Filtro:</h5>
+                                <h5 class="pull-left"></i> <Strong>Filtro:</Strong></h5>
                                 <form class="form-inline my2-lg-0 float-sm-right">
                                     <label>Data Inicial</label>
                                     <input class="form-control ml-sm-2 mr-sm-2" name='start_date' type="date">
@@ -49,7 +41,7 @@ Listagem de Despesas
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="example3" class="table table-bordered table-striped">
+                                    <table id="example2" class="table table-bordered table-striped">
                                         <thead>
                                             <tr class="bg-inverse-success" style="text-align: center">
                                                 <th><strong>ID</strong></th>
@@ -89,7 +81,7 @@ Listagem de Despesas
                                                            style="color: blue;"></i>
                                                     </a>
                                                     <a href="{% url 'despesas:excluir_despesa' d.id %}">
-                                                        <i class="mdi mdi-delete" aria-hidden="true"
+                                                        <i class="fas fa-trash" aria-hidden="true"
                                                            style="color: red;"></i>
                                                     </a>
                                                 </td>
@@ -109,6 +101,16 @@ Listagem de Despesas
 <!--                                            </tr>-->
                                         </tbody>
                                     </table>
+                                </div>
+                            </div>
+                            <div class="p-3 mb-2 bg-light text-dark">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <a class="btn btn-primary btn-sn" href="{% url 'despesas:inserir_despesa' %}">
+                                            <i class="fa fa-plus"></i>
+                                            <span> Cadastrar</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
