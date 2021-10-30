@@ -18,20 +18,12 @@ Listagem de Fornecedores
                                 <div class="container-fluid">
                                     <div class="row mb-0">
                                         <div class="col-sm-6">
-                                            <h1 class="m-0"><i class="fa fa-table menu-icon"></i> Listagens  de Fornecedores</h1>
+                                            <h1 class="m-0"><i class="fa fa-table menu-icon"></i> Listagem  de Fornecedores</h1>
                                         </div>
                                         <div class="col-sm-6">
                                             <ol class="breadcrumb float-sm-right">
                                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                                 <li class="breadcrumb-item active">Listagem de Fornecedores</li>
-                                            </ol>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <ol class="botao float-sm-right">
-                                                <a class="btn btn-primary btn-sm" href="{% url 'fornecedores:inserir_fornecedor' %}">
-                                                    <i class="fa fa-plus"></i>
-                                                    <span> Cadastrar</span>
-                                                </a>
                                             </ol>
                                         </div>
                                     </div>
@@ -71,6 +63,16 @@ Listagem de Fornecedores
                                             {% endfor %}
                                         </tbody>
                                     </table>
+                                </div>
+                            </div>
+                            <div class="p-3 mb-2 bg-light text-dark">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <a class="btn btn-primary btn-sn" href="{% url 'fornecedores:inserir_fornecedor' %}">
+                                            <i class="fa fa-plus"></i>
+                                            <span> Cadastrar</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
