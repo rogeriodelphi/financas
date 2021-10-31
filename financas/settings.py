@@ -25,7 +25,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 DJANGO_APPS = [
-    # 'jazzmin',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,7 +38,6 @@ THIRD_APPS = [
     'crispy_forms',
     'django_extensions',
     'widget_tweaks',
-
 ]
 
 PROJECT_APPS = [
