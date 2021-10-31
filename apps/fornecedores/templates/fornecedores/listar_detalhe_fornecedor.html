@@ -1,37 +1,57 @@
 {% extends 'home.html' %}
 
-{% load crispy_forms_tags %}
-
 {% block titulo %}
-Detalhar Fornecedor
+Detalhes do Fornecedor
 {% endblock titulo %}
 
 {% load static %}
 
 {% block pages %}
 <div class="main-panel">
-    <div class="content-wrapper pb-0">
-        <div class="header-left">
-            <div class="row">
-                <div class="col-xl-12 stretch-card grid-margin">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h2 class="pull-left"><i class="mdi mdi mdi-cash-usd menu-icon"></i> Detalhe da Natureza da Despesa</h2>
+    <div class="header-left">
+        <div class="row">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="container-fluid">
+                                    <div class="row mb-0">
+                                        <div class="col-sm-8">
+                                            <h1 class="m-0"><i class="fa fa-info-circle"></i> Detalhes do Fornecedor</h1>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ol class="breadcrumb float-sm-right">
+                                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                                <li class="breadcrumb-item active">Detalhes do Fornecedor</li>
+                                            </ol>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <div class="card-header">
-                                        <a href="/fornecedores/listar/{{ fornecedor.id }}/"><h4>{{ fornecedor.for_fornecedor }}</h4></a>
+                            </div>
+                            <div class="card-body">
+                                <div class="p-3 mb-2 bg-light text-dark">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="/fornecedores/listar/{{ fornecedor.id }}/"><h4>{{ fornecedor.for_fornecedor }}</h4></a>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <p>Telefone: <strong>{{ fornecedor.for_fone }}</strong></p>
-                                        <p>Obeservações: <strong>{{ fornecedor.for_obs }}</strong></p>
+                                </div>
+                                <div class="p-3 mb-2 bg-light text-dark">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>Telefone: <strong>{{ fornecedor.for_fone }}</strong></p>
+                                            <p>Obeservações: <strong>{{ fornecedor.for_obs }}</strong></p>
+                                        </div>
                                     </div>
-                                    <div class="card-footer">
-                                        <button type="button" class="btn btn-primary" onClick="history.go(-1)">
-                                            <i class="fa fa-angle-double-left"></i> Voltar
-                                        </button>
+                                </div>
+                                <div class="p-3 mb-2 bg-light text-dark">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-primary" onClick="history.go(-1)">
+                                                <i class="fa fa-angle-double-left"></i> Voltar
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
