@@ -1,5 +1,6 @@
 from django.urls import path
 
+
 from .views import (
     listar_despesas,
     inserir_despesa,
@@ -12,7 +13,7 @@ from .views import (
 app_name = 'apps/despesas'
 
 urlpatterns = [
-    path('', listar_despesas, name='listar_despesas'),
+    path('listar', listar_despesas, name='listar_despesas'),
     path('inserir', inserir_despesa, name='inserir_despesa'),
     path('listar/<int:id>/', listar_detalhe_despesa, name='listar_detalhe_despesa'),
     path('editar/<int:id>/', editar_despesa, name='editar_despesa'),

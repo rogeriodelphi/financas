@@ -11,7 +11,7 @@ from .views import (
 app_name = 'apps/nat_despesas'
 
 urlpatterns = [
-    path('', listar_natdespesas, name='listar_natdespesas'),
+    path('listar', listar_natdespesas, name='listar_natdespesas'),
     path('inserir', inserir_natdespesa, name='inserir_natdespesa'),
     path('listar/<int:id>/', listar_detalhe_natdespesa, name = 'listar_detalhe_natdespesa'),
     path('editar/<int:id>/', editar_natdespesa, name = 'editar_natdespesa'),
