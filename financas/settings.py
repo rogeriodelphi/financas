@@ -1,6 +1,8 @@
 import os
 import sys
 from pathlib import Path
+from six import text_type
+from django.utils import six
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -92,12 +94,14 @@ WSGI_APPLICATION = 'financas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 """
 DATABASES = {
@@ -156,3 +160,4 @@ MEDIA_URL = '/media/'
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
